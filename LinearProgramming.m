@@ -73,22 +73,7 @@ indexrow = 1;   %matlab indexes start from one
 indexcol = 1;
 newinput = 1;
 
-for indexrow = 1:K*5
-    
-    if newinput==6
-        newinput=1;
-    end
-    
-    for indexcol = 1:K
-        if (indexcol == ceil(indexrow/5))
-            A(indexrow , indexcol) = 1 - P(indexcol, indexcol, newinput);
-        else
-            A(indexrow , indexcol) = -P(ceil(indexrow/5), indexcol, newinput);
-        end
-    end
-    
-    newinput = newinput + 1;
-end
+
 
 %computing the matrix in order not to make the problem unbounded
 A_cut = zeros(5*(K-1) , K-1);
